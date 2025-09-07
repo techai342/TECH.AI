@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech. AI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    h1 {
+      font-size: clamp(38px, 8vw, 88px);
+      color: #ffeb3b;
+      margin: 20px 0 15px;
+      text-shadow: 0 0 12px #fff700, 0 0 28px #fff200, 0 0 60px #ffeb3b, 0 0 90px #fff46b;
+      animation: glow 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 12px #fff700, 0 0 28px #fff200; }
+      to { text-shadow: 0 0 30px #ffeb3b, 0 0 90px #fff46b; }
+    }
+
+    /* Logo with neon circle */
+    .logo-wrapper {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin-bottom: 35px;
+    }
+    .logo-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+      animation: float 3s ease-in-out infinite;
+    }
+    .logo-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: conic-gradient(#ffeb3b, #00f3ff, #ff2e63, #ffeb3b);
+      filter: blur(12px);
+      animation: spin 6s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* Buttons */
+    .btn-box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 300px;
+      max-width: 90%;
+      animation: fadeInUp 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-box a {
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #00f3ff;
+      box-shadow: 0 0 12px #00f3ff, 0 0 28px #00c3ff;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-box a:hover {
+      background: #00f3ff;
+      color: #000;
+      transform: scale(1.08);
+      box-shadow: 0 0 25px #00f3ff, 0 0 55px #00c3ff;
+    }
+
+    .contact-btn {
+      background: #25D366 !important;
+      border: 2px solid #128C7E !important;
+      box-shadow: 0 0 18px #25D366, 0 0 40px #128C7E;
+    }
+    .contact-btn:hover {
+      background: #128C7E !important;
+      color: #fff !important;
+      transform: scale(1.08);
+      box-shadow: 0 0 28px #25D366, 0 0 60px #128C7E;
+    }
+
+    /* Group Join Floating Button */
+    .group-btn-wrap {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+    }
+    .group-btn {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      font-size: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px #25D366, 0 0 55px #128C7E;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .group-btn:hover {
+      transform: scale(1.12);
+      background: #128C7E;
+    }
+    .group-label {
+      margin-top: 8px;
+      font-size: 14px;
+      background: rgba(255,255,255,0.1);
+      padding: 4px 10px;
+      border-radius: 8px;
+      backdrop-filter: blur(6px);
+    }
+
+    footer {
+      margin-top: 45px;
+      max-width: 800px;
+      padding: 22px;
+      font-size: 15px;
+      color: #eee;
+      background: rgba(0,0,0,0.55);
+      border-radius: 12px;
+      line-height: 1.6;
+      box-shadow: 0 0 15px rgba(255,255,255,0.25);
+      animation: fadeInUp 1.2s ease-in-out forwards;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tech. AI</h1>
+  <div class="logo-wrapper">
+    <img src="https://files.catbox.moe/6wyrtf.webp" alt="Logo" class="logo-img" />
+  </div>
+  
+  <div class="btn-box">
+    <a href="https://saqib-pannelpk.vercel.app/" target="_blank"><i class="fa-solid fa-share-nodes"></i> Social Media Service</a>
+    <a href="https://muhammad-saqib20-fcoa.vercel.app/" target="_blank"><i class="fa-solid fa-crown"></i> Premium App Version</a>
+    <a href="https://muhammad-saqib30.vercel.app/" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bot</a>
+    <a href="https://acta.ai/login" target="_blank"><i class="fa-solid fa-robot"></i> Best AI Tool</a>
+    <a href="https://getfreesmsnumber.com/" target="_blank"><i class="fa-solid fa-phone"></i> Free Virtual Number</a>
+    <!-- New buttons added here -->
+    <a href="https://www.opus.pro/" target="_blank"><i class="fa-solid fa-store"></i> Editing Store</a>
+    <a href="https://www.tiktok.com/@mr_saqib_242?_t=ZS-8zVhtyEE6Nu&_r=1" target="_blank"><i class="fa-solid fa-toolbox"></i> Hack Tools</a>
+  </div>
+  
+  <div class="btn-box" style="margin-top:25px;">
+    <a href="https://wa.me/923478936242?text=Hello%20SAQIB%20Bhai%20%E2%9D%A4%E2%80%8D%F0%9F%A9%B9" target="_blank" class="contact-btn"><i class="fa-brands fa-whatsapp"></i> Contact Now</a>
+  </div>
+  
+  <div class="group-btn-wrap">
+    <a href="https://chat.whatsapp.com/BDaIgl3YDNfFbmfLBBIlQp?mode=ems_share_t" target="_blank" class="group-btn">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <div class="group-label">WhatsApp Group</div>
+  </div>
+  
+  <footer>
+    <h2>Sample Article Title</h2>
+    <p>
+      Ye article sirf example hai. Aap is jagah apna content update kar sakte ho — jaise services ka detail, blog post, ya koi bhi information jo aap visitors ko dena chahte ho.
+    </p>
+  </footer>
+</body>
+</html>
