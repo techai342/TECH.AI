@@ -108,6 +108,7 @@
       box-shadow: 0 0 25px #00f3ff, 0 0 55px #00c3ff;
     }
 
+    /* Special button styles */
     .contact-btn {
       background: #25D366 !important;
       border: 2px solid #128C7E !important;
@@ -118,6 +119,30 @@
       color: #fff !important;
       transform: scale(1.08);
       box-shadow: 0 0 28px #25D366, 0 0 60px #128C7E;
+    }
+    
+    .freefire-btn {
+      background: linear-gradient(135deg, #ff5722, #ff9800) !important;
+      border: 2px solid #ff5722 !important;
+      box-shadow: 0 0 12px #ff9800, 0 0 28px #ff5722;
+    }
+    .freefire-btn:hover {
+      background: linear-gradient(135deg, #ff9800, #ff5722) !important;
+      color: #fff !important;
+      transform: scale(1.08);
+      box-shadow: 0 0 25px #ff9800, 0 0 55px #ff5722;
+    }
+    
+    .pubg-btn {
+      background: linear-gradient(135deg, #fdbb2d, #22c1c3) !important;
+      border: 2px solid #fdbb2d !important;
+      box-shadow: 0 0 12px #fdbb2d, 0 0 28px #22c1c3;
+    }
+    .pubg-btn:hover {
+      background: linear-gradient(135deg, #22c1c3, #fdbb2d) !important;
+      color: #fff !important;
+      transform: scale(1.08);
+      box-shadow: 0 0 25px #fdbb2d, 0 0 55px #22c1c3;
     }
 
     /* Group Join Floating Button */
@@ -169,6 +194,12 @@
       box-shadow: 0 0 15px rgba(255,255,255,0.25);
       animation: fadeInUp 1.2s ease-in-out forwards;
     }
+
+    /* small responsive tweaks */
+    @media (max-width: 520px) {
+      .btn-box { width: 92%; gap: 12px; }
+      .group-btn { width: 70px; height: 70px; font-size: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -178,32 +209,59 @@
   </div>
   
   <div class="btn-box">
-    <a href="https://saqib-pannelpk.vercel.app/" target="_blank"><i class="fa-solid fa-share-nodes"></i> Social Media Service</a>
-    <a href="https://muhammad-saqib21.vercel.app/" target="_blank"><i class="fa-solid fa-crown"></i> Premium App Version</a>
-    <a href="https://muhammad-saqib30.vercel.app/" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bot</a>
-    <a href="https://acta.ai/login" target="_blank"><i class="fa-solid fa-robot"></i> Best AI Tool</a>
-    <a href="https://sms.stats.tel/" target="_blank"><i class="fa-solid fa-phone"></i> Free Virtual Number</a>
+    <a href="https://saqib-pannelpk.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-share-nodes"></i> Social Media Service</a>
+    <a href="https://muhammad-saqib20-fcoa.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-crown"></i> Premium App Version</a>
+    <a href="https://muhammad-saqib30.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bot</a>
+    <a href="https://acta.ai/login" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-robot"></i> Best AI Tool</a>
+    <a href="https://getfreesmsnumber.com/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-phone"></i> Free Virtual Number</a>
     <!-- New buttons added here -->
-    <a href="https://www.opus.pro/" target="_blank"><i class="fa-solid fa-store"></i> Editing Store</a>
-    <a href="https://muhammad-saqib42.vercel.app/" target="_blank"><i class="fa-solid fa-toolbox"></i> Hack Tools</a>
+    <a href="https://www.opus.pro/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-store"></i> Editing Store</a>
+    <a href="https://www.tiktok.com/@mr_saqib_242?_t=ZS-8zVhtyEE6Nu&_r=1" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-toolbox"></i> Hack Tools</a>
+
+    <!-- Free Fire and PUBG buttons - UPDATED to your provided link -->
+    <!-- Both buttons open https://tech-ai-zeta.vercel.app/ as requested -->
+    <a id="freefireBtn" href="https://tech-ai-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" class="freefire-btn">
+      <i class="fa-solid fa-fire"></i> Free Fire
+    </a>
+    <a id="pubgBtn" href="https://tech-ai-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" class="pubg-btn">
+      <i class="fa-solid fa-gamepad"></i> PUBG
+    </a>
   </div>
   
   <div class="btn-box" style="margin-top:25px;">
-    <a href="https://wa.me/923478936242?text=Hello%20SAQIB%20Bhai%20%E2%9D%A4%E2%80%8D%F0%9F%A9%B9" target="_blank" class="contact-btn"><i class="fa-brands fa-whatsapp"></i> Contact Now</a>
+    <a href="https://wa.me/923478936242?text=Hello%20SAQIB%20Bhai%20%E2%9D%A4%E2%80%8D%F0%9F%A9%B9" target="_blank" rel="noopener noreferrer" class="contact-btn"><i class="fa-brands fa-whatsapp"></i> Contact Now</a>
   </div>
   
   <div class="group-btn-wrap">
-    <a href="https://chat.whatsapp.com/BDaIgl3YDNfFbmfLBBIlQp?mode=ems_share_t" target="_blank" class="group-btn">
+    <a href="https://chat.whatsapp.com/BDaIgl3YDNfFbmfLBBIlQp?mode=ems_share_t" target="_blank" rel="noopener noreferrer" class="group-btn">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
     <div class="group-label">WhatsApp Group</div>
   </div>
   
   <footer>
-    <h2>TECH.AI</h2>
+    <h2>Sample Article Title</h2>
     <p>
-      Thanks for visiting our site. Here we provide variety of services.Here you get many hacking tools and app pro version, paid or free.If you found in issue, contact us, we will help you to solve the problem as soon as possible. Hope you got better experience.
+      Ye article sirf example hai. Aap is jagah apna content update kar sakte ho — jaise services ka detail, blog post, ya koi bhi information jo aap visitors ko dena chahte ho.
     </p>
   </footer>
+
+  <script>
+    // Fallback click handlers (in case some embed blocks direct navigation)
+    // These ensure the buttons open the link in a new tab/window.
+    document.getElementById('freefireBtn').addEventListener('click', function(e) {
+      // default anchor will open, but keep fallback:
+      var url = this.getAttribute('href');
+      if (!url) return;
+      // allow normal behavior for target="_blank" - but as a fallback:
+      setTimeout(function(){ window.open(url, '_blank', 'noopener'); }, 10);
+    });
+
+    document.getElementById('pubgBtn').addEventListener('click', function(e) {
+      var url = this.getAttribute('href');
+      if (!url) return;
+      setTimeout(function(){ window.open(url, '_blank', 'noopener'); }, 10);
+    });
+  </script>
 </body>
 </html>
