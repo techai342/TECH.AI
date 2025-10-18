@@ -1,267 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tech. AI</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOS Loading Redirect</title>
   <style>
-    body {
+    :root {
+      --bg1: #0f172a;
+      --bg2: #071020;
+    }
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
-      min-height: 100vh;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(0,221,255,0.06), transparent 8%),
+                  radial-gradient(1000px 400px at 90% 80%, rgba(255,58,217,0.05), transparent 8%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow: hidden;
+    }
+
+    .glass-card {
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #fff;
-      text-align: center;
-      overflow-x: hidden;
-      position: relative;
-    }
-    
-    h1 {
-      font-size: clamp(38px, 8vw, 88px);
-      color: #ffeb3b;
-      margin: 20px 0 15px;
-      text-shadow: 0 0 12px #fff700, 0 0 28px #fff200, 0 0 60px #ffeb3b, 0 0 90px #fff46b;
-      animation: glow 2s infinite alternate ease-in-out;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 12px #fff700, 0 0 28px #fff200; }
-      to { text-shadow: 0 0 30px #ffeb3b, 0 0 90px #fff46b; }
+      justify-content: center;
+      width: 300px;
+      height: 300px;
+      border-radius: 30px;
+      backdrop-filter: blur(25px) saturate(150%);
+      -webkit-backdrop-filter: blur(25px) saturate(150%);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeIn 0.8s ease forwards 1s; /* Start after 1s */
     }
 
-    /* Logo with neon circle */
-    .logo-wrapper {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin-bottom: 35px;
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
-    .logo-img {
-      width: 160px;
-      height: 160px;
+
+    .spinner {
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      position: relative;
-      z-index: 2;
-      animation: float 3s ease-in-out infinite;
-    }
-    .logo-wrapper::before {
-      content: "";
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      background: conic-gradient(#ffeb3b, #00f3ff, #ff2e63, #ffeb3b);
-      filter: blur(12px);
-      animation: spin 6s linear infinite;
-      z-index: 1;
+      border: 6px solid rgba(255, 255, 255, 0.2);
+      border-top: 6px solid rgba(255, 255, 255, 0.9);
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    /* Buttons */
-    .btn-box {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      width: 300px;
-      max-width: 90%;
-      animation: fadeInUp 1s ease-in-out forwards;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .btn-box a {
-      text-decoration: none;
-      padding: 15px;
-      border-radius: 14px;
+    h2 {
+      color: white;
+      font-weight: 500;
       font-size: 18px;
-      font-weight: bold;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.7);
-      border: 2px solid #00f3ff;
-      box-shadow: 0 0 12px #00f3ff, 0 0 28px #00c3ff;
-      transition: all 0.3s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .btn-box a:hover {
-      background: #00f3ff;
-      color: #000;
-      transform: scale(1.08);
-      box-shadow: 0 0 25px #00f3ff, 0 0 55px #00c3ff;
-    }
-
-    /* Special button styles */
-    .contact-btn {
-      background: #25D366 !important;
-      border: 2px solid #128C7E !important;
-      box-shadow: 0 0 18px #25D366, 0 0 40px #128C7E;
-    }
-    .contact-btn:hover {
-      background: #128C7E !important;
-      color: #fff !important;
-      transform: scale(1.08);
-      box-shadow: 0 0 28px #25D366, 0 0 60px #128C7E;
-    }
-    
-    .freefire-btn {
-      background: linear-gradient(135deg, #ff5722, #ff9800) !important;
-      border: 2px solid #ff5722 !important;
-      box-shadow: 0 0 12px #ff9800, 0 0 28px #ff5722;
-    }
-    .freefire-btn:hover {
-      background: linear-gradient(135deg, #ff9800, #ff5722) !important;
-      color: #fff !important;
-      transform: scale(1.08);
-      box-shadow: 0 0 25px #ff9800, 0 0 55px #ff5722;
-    }
-    
-    .pubg-btn {
-      background: linear-gradient(135deg, #fdbb2d, #22c1c3) !important;
-      border: 2px solid #fdbb2d !important;
-      box-shadow: 0 0 12px #fdbb2d, 0 0 28px #22c1c3;
-    }
-    .pubg-btn:hover {
-      background: linear-gradient(135deg, #22c1c3, #fdbb2d) !important;
-      color: #fff !important;
-      transform: scale(1.08);
-      box-shadow: 0 0 25px #fdbb2d, 0 0 55px #22c1c3;
-    }
-
-    /* Group Join Floating Button */
-    .group-btn-wrap {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 10;
-    }
-    .group-btn {
-      width: 85px;
-      height: 85px;
-      border-radius: 50%;
-      background: #25D366;
-      color: #fff;
-      font-size: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 25px #25D366, 0 0 55px #128C7E;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .group-btn:hover {
-      transform: scale(1.12);
-      background: #128C7E;
-    }
-    .group-label {
-      margin-top: 8px;
-      font-size: 14px;
-      background: rgba(255,255,255,0.1);
-      padding: 4px 10px;
-      border-radius: 8px;
-      backdrop-filter: blur(6px);
-    }
-
-    footer {
-      margin-top: 45px;
-      max-width: 800px;
-      padding: 22px;
-      font-size: 15px;
-      color: #eee;
-      background: rgba(0,0,0,0.55);
-      border-radius: 12px;
-      line-height: 1.6;
-      box-shadow: 0 0 15px rgba(255,255,255,0.25);
-      animation: fadeInUp 1.2s ease-in-out forwards;
-    }
-
-    /* small responsive tweaks */
-    @media (max-width: 520px) {
-      .btn-box { width: 92%; gap: 12px; }
-      .group-btn { width: 70px; height: 70px; font-size: 28px; }
+      text-align: center;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <h1>Tech. AI</h1>
-  <div class="logo-wrapper">
-<img src="https://i.supaimg.com/f497d89b-166f-4840-9fbd-948672eca0ec.jpg" alt="Logo" class="logo-img" />
+  <div class="glass-card">
+    <div class="spinner"></div>
+    <h2>Loading…</h2>
   </div>
-  
-  <div class="btn-box">
-    <a href="https://saqib-pannelpk.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-share-nodes"></i> Social Media Service</a>
-    <a href="https://muhammad-saqib21.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-crown"></i> Premium App Version</a>
-    <a href="https://muhammad-saqib30.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bot</a>
-    <a href="https://ailogin.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-robot"></i> Best AI Tool</a>
-    <a href="https://sms.stats.tel/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-phone"></i> Free Virtual Number</a>
-    <!-- New buttons added here -->
-    <a href="https://editing-tool-login.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-store"></i> Editing Store</a>
-    <a href="https://muhammad-saqib42.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-toolbox"></i> Hack Tools</a>
-
-    <!-- Free Fire and PUBG buttons - UPDATED to your provided link -->
-    <!-- Both buttons open https://tech-ai-zeta.vercel.app/ as requested -->
-    <a id="freefireBtn" href="https://freefire-five.vercel.app/" target="_blank" rel="noopener noreferrer" class="freefire-btn">
-      <i class="fa-solid fa-fire"></i> Free Fire
-    </a>
-    <a id="pubgBtn" href="https://pubg-login.vercel.app/" target="_blank" rel="noopener noreferrer" class="pubg-btn">
-      <i class="fa-solid fa-gamepad"></i> PUBG
-    </a>
-  </div>
-  
-  <div class="btn-box" style="margin-top:25px;">
-    <a href="https://wa.me/923478936242?text=Hello%20SAQIB%20Bhai%20%E2%9D%A4%E2%80%8D%F0%9F%A9%B9" target="_blank" rel="noopener noreferrer" class="contact-btn"><i class="fa-brands fa-whatsapp"></i> Contact Now</a>
-  </div>
-  
-  <div class="group-btn-wrap">
-    <a href="https://chat.whatsapp.com/BDaIgl3YDNfFbmfLBBIlQp?mode=ems_share_t" target="_blank" rel="noopener noreferrer" class="group-btn">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <div class="group-label">WhatsApp Group</div>
-  </div>
-  
-  <footer>
-    <h2>TECH.AI</h2>
-    <p>
-Thanks for visiting our site. Here we provide variety of services.Here you get many hacking tools and app pro version, paid or free.If you found in issue, contact us, we will help you to solve the problem as soon as possible. Hope you got better experience.
-    </p>
-  </footer>
 
   <script>
-    // Fallback click handlers (in case some embed blocks direct navigation)
-    // These ensure the buttons open the link in a new tab/window.
-    document.getElementById('freefireBtn').addEventListener('click', function(e) {
-      // default anchor will open, but keep fallback:
-      var url = this.getAttribute('href');
-      if (!url) return;
-      // allow normal behavior for target="_blank" - but as a fallback:
-      setTimeout(function(){ window.open(url, '_blank', 'noopener'); }, 10);
-    });
-
-    document.getElementById('pubgBtn').addEventListener('click', function(e) {
-      var url = this.getAttribute('href');
-      if (!url) return;
-      setTimeout(function(){ window.open(url, '_blank', 'noopener'); }, 10);
-    });
+    // After 3 seconds, open the target link automatically
+    setTimeout(() => {
+      window.location.href = "https://tech-ai1.vercel.app/";
+    }, 3000);
   </script>
 </body>
 </html>
